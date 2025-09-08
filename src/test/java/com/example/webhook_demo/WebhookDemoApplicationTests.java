@@ -1,13 +1,16 @@
 package com.example.webhook_demo;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
-class WebhookDemoApplicationTests {
+public class WebhookControllerTest {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    public void testStatusShouldFail() {
+        WebhookController controller = new WebhookController();
+        String status = controller.getStatus();
 
+        // Intentionally wrong expected value
+        assertEquals("App is NOT running!", status);
+    }
 }
